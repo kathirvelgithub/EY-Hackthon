@@ -1,0 +1,504 @@
+{
+	"info": {
+		"_postman_id": "ey-hackathon-2025",
+		"name": "EY Hackathon - Complete API Collection",
+		"description": "Complete API collection for Backend (Port 5000) and AI Agents (Port 8000)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Backend API (Port 5000)",
+			"item": [
+				{
+					"name": "Health & Status",
+					"item": [
+						{
+							"name": "Health Check",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/health",
+									"protocol": "http",
+									"host": ["localhost"],
+									"port": "5000",
+									"path": ["health"]
+								}
+							}
+						}
+					]
+				},
+				{
+					"name": "Telematics",
+					"item": [
+						{
+							"name": "Get All Telematics",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/telematics",
+									"protocol": "http",
+									"host": ["localhost"],
+									"port": "5000",
+									"path": ["telematics"]
+								}
+							}
+						},
+						{
+							"name": "Get Telematics VEH_001",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/telematics/VEH_001",
+									"protocol": "http",
+									"host": ["localhost"],
+									"port": "5000",
+									"path": ["telematics", "VEH_001"]
+								}
+							}
+						},
+						{
+							"name": "Get Telematics VEH_002",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/telematics/VEH_002",
+									"protocol": "http",
+									"host": ["localhost"],
+									"port": "5000",
+									"path": ["telematics", "VEH_002"]
+								}
+							}
+						},
+						{
+							"name": "Get Telematics VEH_003",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/telematics/VEH_003",
+									"protocol": "http",
+									"host": ["localhost"],
+									"port": "5000",
+									"path": ["telematics", "VEH_003"]
+								}
+							}
+						}
+					]
+				},
+				{
+					"name": "Maintenance",
+					"item": [
+						{
+							"name": "Get Maintenance History VEH_001",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/maintenance/VEH_001",
+									"protocol": "http",
+									"host": ["localhost"],
+									"port": "5000",
+									"path": ["maintenance", "VEH_001"]
+								}
+							}
+						},
+						{
+							"name": "Get Maintenance History VEH_002",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/maintenance/VEH_002",
+									"protocol": "http",
+									"host": ["localhost"],
+									"port": "5000",
+									"path": ["maintenance", "VEH_002"]
+								}
+							}
+						}
+					]
+				},
+				{
+					"name": "Notifications",
+					"item": [
+						{
+							"name": "Get Notification History",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/notifications/history",
+									"protocol": "http",
+									"host": ["localhost"],
+									"port": "5000",
+									"path": ["notifications", "history"]
+								}
+							}
+						},
+						{
+							"name": "Get Notification Stats",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/notifications/stats",
+									"protocol": "http",
+									"host": ["localhost"],
+									"port": "5000",
+									"path": ["notifications", "stats"]
+								}
+							}
+						},
+						{
+							"name": "Send Notification",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"vehicle_id\": \"VEH_001\",\n  \"message\": \"Your vehicle maintenance is due soon\",\n  \"type\": \"info\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/notifications/push",
+									"protocol": "http",
+									"host": ["localhost"],
+									"port": "5000",
+									"path": ["notifications", "push"]
+								}
+							}
+						}
+					]
+				},
+				{
+					"name": "Scheduler",
+					"item": [
+						{
+							"name": "Get Available Slots",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/scheduler/slots?center_id=CENTER-001&date=2025-12-15",
+									"protocol": "http",
+									"host": ["localhost"],
+									"port": "5000",
+									"path": ["scheduler", "slots"],
+									"query": [
+										{
+											"key": "center_id",
+											"value": "CENTER-001"
+										},
+										{
+											"key": "date",
+											"value": "2025-12-15"
+										}
+									]
+								}
+							}
+						},
+						{
+							"name": "Get All Bookings",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/scheduler/bookings",
+									"protocol": "http",
+									"host": ["localhost"],
+									"port": "5000",
+									"path": ["scheduler", "bookings"]
+								}
+							}
+						},
+						{
+							"name": "Get Vehicle Bookings",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/scheduler/bookings/VEH_001",
+									"protocol": "http",
+									"host": ["localhost"],
+									"port": "5000",
+									"path": ["scheduler", "bookings", "VEH_001"]
+								}
+							}
+						},
+						{
+							"name": "Book Appointment",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"vehicle_id\": \"VEH_001\",\n  \"slot_id\": \"SLOT-001\",\n  \"center_id\": \"CENTER-001\",\n  \"date\": \"2025-12-15\",\n  \"priority\": \"high\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/scheduler/book",
+									"protocol": "http",
+									"host": ["localhost"],
+									"port": "5000",
+									"path": ["scheduler", "book"]
+								}
+							}
+						}
+					]
+				},
+				{
+					"name": "Orchestration",
+					"item": [
+						{
+							"name": "Run Backend Orchestration Flow",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"vehicle_id\": \"VEH_001\",\n  \"customer_name\": \"John Doe\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/orchestration/run_flow",
+									"protocol": "http",
+									"host": ["localhost"],
+									"port": "5000",
+									"path": ["orchestration", "run_flow"]
+								}
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "AI Agents API (Port 8000)",
+			"item": [
+				{
+					"name": "Health & Info",
+					"item": [
+						{
+							"name": "Health Check",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/health",
+									"protocol": "http",
+									"host": ["localhost"],
+									"port": "8000",
+									"path": ["health"]
+								}
+							}
+						},
+						{
+							"name": "Get Agents Info",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/agents/info",
+									"protocol": "http",
+									"host": ["localhost"],
+									"port": "8000",
+									"path": ["agents", "info"]
+								}
+							}
+						}
+					]
+				},
+				{
+					"name": "Orchestration",
+					"item": [
+						{
+							"name": "Run AI Agent Flow - VEH_001",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"vehicle_id\": \"VEH_001\",\n  \"analysis_type\": \"full\",\n  \"priority\": \"normal\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8000/orchestration/run_flow",
+									"protocol": "http",
+									"host": ["localhost"],
+									"port": "8000",
+									"path": ["orchestration", "run_flow"]
+								}
+							}
+						},
+						{
+							"name": "Run AI Agent Flow - VEH_002",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"vehicle_id\": \"VEH_002\",\n  \"analysis_type\": \"full\",\n  \"priority\": \"normal\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8000/orchestration/run_flow",
+									"protocol": "http",
+									"host": ["localhost"],
+									"port": "8000",
+									"path": ["orchestration", "run_flow"]
+								}
+							}
+						},
+						{
+							"name": "Run AI Agent Flow - VEH_003",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"vehicle_id\": \"VEH_003\",\n  \"analysis_type\": \"full\",\n  \"priority\": \"high\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8000/orchestration/run_flow",
+									"protocol": "http",
+									"host": ["localhost"],
+									"port": "8000",
+									"path": ["orchestration", "run_flow"]
+								}
+							}
+						},
+						{
+							"name": "Run AI Agent Flow - Quick Analysis",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"vehicle_id\": \"VEH_001\",\n  \"analysis_type\": \"quick\",\n  \"priority\": \"normal\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8000/orchestration/run_flow",
+									"protocol": "http",
+									"host": ["localhost"],
+									"port": "8000",
+									"path": ["orchestration", "run_flow"]
+								}
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Test Scenarios",
+			"item": [
+				{
+					"name": "Complete Integration Test",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"vehicle_id\": \"VEH_001\",\n  \"analysis_type\": \"full\",\n  \"priority\": \"high\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8000/orchestration/run_flow",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8000",
+							"path": ["orchestration", "run_flow"]
+						}
+					}
+				},
+				{
+					"name": "High Priority Vehicle Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/telematics/VEH_001",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["telematics", "VEH_001"]
+						}
+					}
+				},
+				{
+					"name": "Book Emergency Appointment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"vehicle_id\": \"VEH_001\",\n  \"slot_id\": \"SLOT-EMERGENCY\",\n  \"center_id\": \"CENTER-001\",\n  \"date\": \"2025-12-12\",\n  \"priority\": \"critical\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/scheduler/book",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["scheduler", "book"]
+						}
+					}
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "backend_url",
+			"value": "http://localhost:5000",
+			"type": "string"
+		},
+		{
+			"key": "ai_agents_url",
+			"value": "http://localhost:8000",
+			"type": "string"
+		}
+	]
+}

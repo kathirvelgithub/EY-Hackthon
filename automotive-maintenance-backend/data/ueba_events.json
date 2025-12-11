@@ -1,0 +1,258 @@
+[
+  {
+    "event_id": "291a2783-07dd-4376-b3f7-1ab0f7397ba4",
+    "timestamp": "2025-12-10T15:28:24.889Z",
+    "agent_name": "DataAnalysis",
+    "service_name": "telematics",
+    "action": "allowed",
+    "reason": "Permission granted"
+  },
+  {
+    "event_id": "960b4e31-ff61-4b13-b58a-aba62de726ca",
+    "timestamp": "2025-12-10T15:28:24.894Z",
+    "agent_name": "DataAnalysis",
+    "service_name": "maintenance",
+    "action": "allowed",
+    "reason": "Permission granted"
+  },
+  {
+    "event_id": "9490ca79-a194-4eea-9dcb-258ca8b1d0d4",
+    "timestamp": "2025-12-10T15:28:24.929Z",
+    "agent_name": "Diagnosis",
+    "service_name": "telematics",
+    "action": "allowed",
+    "reason": "Permission granted"
+  },
+  {
+    "event_id": "dede62a4-68c0-4798-9860-b0f855870cfb",
+    "timestamp": "2025-12-10T15:28:24.931Z",
+    "agent_name": "Scheduling",
+    "service_name": "scheduler",
+    "action": "allowed",
+    "reason": "Permission granted"
+  },
+  {
+    "event_id": "22826c40-a41e-4cc6-950e-325067821c70",
+    "timestamp": "2025-12-10T15:28:24.944Z",
+    "agent_name": "Scheduling",
+    "service_name": "scheduler",
+    "action": "allowed",
+    "reason": "Permission granted"
+  },
+  {
+    "event_id": "e6ae7989-04bf-426f-883c-de9df3f4804b",
+    "timestamp": "2025-12-10T15:28:24.956Z",
+    "agent_name": "Scheduling",
+    "service_name": "notifications",
+    "action": "allowed",
+    "reason": "Permission granted"
+  },
+  {
+    "event_id": "f4f7fc1d-572b-4cd1-afe1-697e6db0df98",
+    "timestamp": "2025-12-10T15:28:24.970Z",
+    "agent_name": "ManufacturingInsights",
+    "service_name": "maintenance",
+    "action": "allowed",
+    "reason": "Permission granted"
+  },
+  {
+    "event_id": "a23d93dc-201c-4cce-a5f1-44b04250d773",
+    "timestamp": "2025-12-10T15:28:54.288Z",
+    "agent_name": "DataAnalysis",
+    "service_name": "telematics",
+    "action": "allowed",
+    "reason": "Permission granted"
+  },
+  {
+    "event_id": "157b3fd8-968d-4aa0-abce-c9130a6f1a42",
+    "timestamp": "2025-12-10T15:28:54.290Z",
+    "agent_name": "DataAnalysis",
+    "service_name": "maintenance",
+    "action": "allowed",
+    "reason": "Permission granted"
+  },
+  {
+    "event_id": "7aa5daf5-1fb9-4336-bf6b-83e3f7498ddd",
+    "timestamp": "2025-12-10T15:28:54.305Z",
+    "agent_name": "Diagnosis",
+    "service_name": "telematics",
+    "action": "allowed",
+    "reason": "Permission granted"
+  },
+  {
+    "event_id": "8f8a1b1b-b267-400c-aba0-943c0b000d61",
+    "timestamp": "2025-12-10T15:28:54.317Z",
+    "agent_name": "Scheduling",
+    "service_name": "scheduler",
+    "action": "allowed",
+    "reason": "Permission granted"
+  },
+  {
+    "event_id": "f6c3c9d5-3c6e-4caf-b85b-b29c0a96d7eb",
+    "timestamp": "2025-12-10T15:28:54.329Z",
+    "agent_name": "Scheduling",
+    "service_name": "scheduler",
+    "action": "allowed",
+    "reason": "Permission granted"
+  },
+  {
+    "event_id": "b4b7f308-17bd-426c-9744-45c2f49218fc",
+    "timestamp": "2025-12-10T15:28:54.344Z",
+    "agent_name": "Scheduling",
+    "service_name": "notifications",
+    "action": "allowed",
+    "reason": "Permission granted"
+  },
+  {
+    "event_id": "f1229c2f-5c9c-4003-ad91-3eff349a5328",
+    "timestamp": "2025-12-10T15:28:54.358Z",
+    "agent_name": "ManufacturingInsights",
+    "service_name": "maintenance",
+    "action": "allowed",
+    "reason": "Permission granted"
+  },
+  {
+    "event_id": "e76f7cca-d6ec-4682-a81e-6aea0deb4a23",
+    "timestamp": "2025-12-10T15:29:00.883Z",
+    "agent_name": "DataAnalysis",
+    "service_name": "telematics",
+    "action": "allowed",
+    "reason": "Permission granted"
+  },
+  {
+    "event_id": "fb8bea4f-bda6-475e-b794-4a8ea1f2914f",
+    "timestamp": "2025-12-10T15:29:00.886Z",
+    "agent_name": "DataAnalysis",
+    "service_name": "maintenance",
+    "action": "allowed",
+    "reason": "Permission granted"
+  },
+  {
+    "event_id": "b9077d9b-1e19-41ab-ac2e-45762ae0b0bb",
+    "timestamp": "2025-12-10T15:29:00.900Z",
+    "agent_name": "Diagnosis",
+    "service_name": "telematics",
+    "action": "allowed",
+    "reason": "Permission granted"
+  },
+  {
+    "event_id": "31a3c122-edad-4718-8d74-16b936e83f7b",
+    "timestamp": "2025-12-10T15:29:00.911Z",
+    "agent_name": "Scheduling",
+    "service_name": "scheduler",
+    "action": "allowed",
+    "reason": "Permission granted"
+  },
+  {
+    "event_id": "1d6fb146-c13f-4a14-acc9-cbb9cffbae2b",
+    "timestamp": "2025-12-10T15:29:00.922Z",
+    "agent_name": "Scheduling",
+    "service_name": "scheduler",
+    "action": "allowed",
+    "reason": "Permission granted"
+  },
+  {
+    "event_id": "5dd9ad5f-eaeb-490b-a615-40a6e97dd8b0",
+    "timestamp": "2025-12-10T15:29:00.936Z",
+    "agent_name": "Scheduling",
+    "service_name": "notifications",
+    "action": "allowed",
+    "reason": "Permission granted"
+  },
+  {
+    "event_id": "7dd5788d-a564-429e-bfa2-cc933c7c33da",
+    "timestamp": "2025-12-10T15:29:00.953Z",
+    "agent_name": "ManufacturingInsights",
+    "service_name": "maintenance",
+    "action": "allowed",
+    "reason": "Permission granted"
+  },
+  {
+    "event_id": "52453073-14f0-4d3e-b592-9e73d4269344",
+    "timestamp": "2025-12-10T15:44:07.466Z",
+    "agent_name": "DataAnalysis",
+    "service_name": "telematics",
+    "action": "allowed",
+    "reason": "Permission granted"
+  },
+  {
+    "event_id": "eca03219-e222-49b4-8b7b-8811f31da99c",
+    "timestamp": "2025-12-10T15:44:07.478Z",
+    "agent_name": "DataAnalysis",
+    "service_name": "maintenance",
+    "action": "allowed",
+    "reason": "Permission granted"
+  },
+  {
+    "event_id": "a2870c11-c690-4b99-bb37-c01506319c8f",
+    "timestamp": "2025-12-10T15:44:07.501Z",
+    "agent_name": "Diagnosis",
+    "service_name": "telematics",
+    "action": "allowed",
+    "reason": "Permission granted"
+  },
+  {
+    "event_id": "23abde75-706c-460d-96d4-070e304c4856",
+    "timestamp": "2025-12-10T15:44:07.513Z",
+    "agent_name": "Scheduling",
+    "service_name": "scheduler",
+    "action": "allowed",
+    "reason": "Permission granted"
+  },
+  {
+    "event_id": "5eb389f7-4c62-4724-ab76-76bd65d8d42d",
+    "timestamp": "2025-12-10T15:44:07.526Z",
+    "agent_name": "Scheduling",
+    "service_name": "scheduler",
+    "action": "allowed",
+    "reason": "Permission granted"
+  },
+  {
+    "event_id": "2d365209-f546-4e94-a465-3de0180050cc",
+    "timestamp": "2025-12-10T15:44:07.543Z",
+    "agent_name": "Scheduling",
+    "service_name": "notifications",
+    "action": "allowed",
+    "reason": "Permission granted"
+  },
+  {
+    "event_id": "3422eefd-6927-42b7-b64f-8ca6a679f3a0",
+    "timestamp": "2025-12-10T15:44:07.558Z",
+    "agent_name": "ManufacturingInsights",
+    "service_name": "maintenance",
+    "action": "allowed",
+    "reason": "Permission granted"
+  },
+  {
+    "event_id": "e2c3288a-3709-477a-86e2-6ab901a9023e",
+    "timestamp": "2025-12-10T15:44:15.736Z",
+    "agent_name": "DataAnalysis",
+    "service_name": "telematics",
+    "action": "allowed",
+    "reason": "Permission granted"
+  },
+  {
+    "event_id": "c998590a-3325-42c3-9c9a-44275d394767",
+    "timestamp": "2025-12-10T15:44:15.738Z",
+    "agent_name": "DataAnalysis",
+    "service_name": "maintenance",
+    "action": "allowed",
+    "reason": "Permission granted"
+  },
+  {
+    "event_id": "0d28dda7-62f8-45b6-adb8-0ad85dd81933",
+    "timestamp": "2025-12-10T15:44:15.758Z",
+    "agent_name": "Diagnosis",
+    "service_name": "telematics",
+    "action": "allowed",
+    "reason": "Permission granted"
+  },
+  {
+    "event_id": "3352d74b-4249-4807-be0c-b1519aae966b",
+    "timestamp": "2025-12-10T15:44:15.773Z",
+    "agent_name": "ManufacturingInsights",
+    "service_name": "maintenance",
+    "action": "allowed",
+    "reason": "Permission granted"
+  }
+]

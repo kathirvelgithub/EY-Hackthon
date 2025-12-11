@@ -1,0 +1,13 @@
+vehicle_id,service_date,component,issue,action_taken,status,technician
+VEH_001,2025-11-15,Brake System,Brake pads worn,Replaced front brake pads,completed,Ramesh
+VEH_001,2025-10-20,Engine,Engine oil change,Oil and filter changed,completed,Ramesh
+VEH_001,2025-09-10,Transmission,Transmission fluid low,Topped up fluid,completed,Suresh
+VEH_002,2025-11-20,Air Filter,Air filter clogged,Replaced air filter,completed,Priya
+VEH_002,2025-09-15,Battery,Battery weak,Tested and charged,completed,Ajay
+VEH_003,2025-11-25,Engine,Engine overheating,Radiator flushed,completed,Suresh
+VEH_003,2025-10-30,Engine,Engine diagnostic codes,Diagnosed and cleared codes,completed,Suresh
+VEH_003,2025-08-20,Coolant System,Coolant leak,Seal replaced,completed,Ramesh
+VEH_004,2025-11-22,Routine Maintenance,Scheduled service,Oil change and filter,completed,Priya
+VEH_005,2025-11-18,Exhaust System,Exhaust rattle,Replaced exhaust bracket,completed,Ajay
+VEH_005,2025-10-12,Engine,Engine oil change,Oil and filter changed,completed,Suresh
+VEH_005,2025-09-01,Electrical,Check Engine light,Scanned and cleared codes,completed,Ramesh

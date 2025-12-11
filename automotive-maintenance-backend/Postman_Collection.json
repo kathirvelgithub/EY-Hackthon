@@ -1,0 +1,447 @@
+{
+  "info": {
+    "_postman_id": "automotive-maintenance-api",
+    "name": "Automotive Maintenance Backend API",
+    "description": "Agentic AI for Predictive Vehicle Maintenance - Complete API Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health & Status",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/health",
+              "host": ["{{base_url}}"],
+              "path": ["health"]
+            },
+            "description": "Check if the backend server is running"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Telematics Service",
+      "item": [
+        {
+          "name": "Get All Vehicles",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/telematics",
+              "host": ["{{base_url}}"],
+              "path": ["telematics"]
+            },
+            "description": "Retrieve telemetry data for all vehicles"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Vehicle VEH_001",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/telematics/VEH_001",
+              "host": ["{{base_url}}"],
+              "path": ["telematics", "VEH_001"]
+            },
+            "description": "Get real-time telemetry for Maruti Swift 2022 (HIGH RISK - brake wear 82%)"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Vehicle VEH_002",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/telematics/VEH_002",
+              "host": ["{{base_url}}"],
+              "path": ["telematics", "VEH_002"]
+            },
+            "description": "Get telemetry for Hyundai Creta 2021 (LOW RISK)"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Vehicle VEH_003",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/telematics/VEH_003",
+              "host": ["{{base_url}}"],
+              "path": ["telematics", "VEH_003"]
+            },
+            "description": "Get telemetry for Tata Nexon 2020 (HIGH RISK - engine temp 105°C)"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Maintenance Service",
+      "item": [
+        {
+          "name": "Get All Maintenance Records",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/maintenance",
+              "host": ["{{base_url}}"],
+              "path": ["maintenance"]
+            },
+            "description": "Retrieve all maintenance records from all vehicles"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Vehicle VEH_001 History",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/maintenance/VEH_001?limit=5",
+              "host": ["{{base_url}}"],
+              "path": ["maintenance", "VEH_001"],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "5"
+                }
+              ]
+            },
+            "description": "Get last 5 maintenance records for VEH_001"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Vehicle VEH_003 History",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/maintenance/VEH_003?limit=3",
+              "host": ["{{base_url}}"],
+              "path": ["maintenance", "VEH_003"],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "3"
+                }
+              ]
+            },
+            "description": "Get last 3 maintenance records for VEH_003 (engine issues)"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Scheduler Service",
+      "item": [
+        {
+          "name": "Get Available Slots - CENTER_001",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/scheduler/slots?center_id=CENTER_001&date=2025-12-10",
+              "host": ["{{base_url}}"],
+              "path": ["scheduler", "slots"],
+              "query": [
+                {
+                  "key": "center_id",
+                  "value": "CENTER_001"
+                },
+                {
+                  "key": "date",
+                  "value": "2025-12-10"
+                }
+              ]
+            },
+            "description": "Get available appointment slots at Main Service Center"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Available Slots - CENTER_002",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/scheduler/slots?center_id=CENTER_002&date=2025-12-11",
+              "host": ["{{base_url}}"],
+              "path": ["scheduler", "slots"],
+              "query": [
+                {
+                  "key": "center_id",
+                  "value": "CENTER_002"
+                },
+                {
+                  "key": "date",
+                  "value": "2025-12-11"
+                }
+              ]
+            },
+            "description": "Get available slots at Metropolitan Hub"
+          },
+          "response": []
+        },
+        {
+          "name": "Book Appointment",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vehicle_id\": \"VEH_001\",\n  \"slot_id\": \"SLOT_001\",\n  \"center_id\": \"CENTER_001\",\n  \"customer_name\": \"Rajesh Kumar\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/scheduler/book",
+              "host": ["{{base_url}}"],
+              "path": ["scheduler", "book"]
+            },
+            "description": "Book an appointment for a vehicle at a service center"
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Bookings",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/scheduler/bookings",
+              "host": ["{{base_url}}"],
+              "path": ["scheduler", "bookings"]
+            },
+            "description": "Retrieve all service bookings"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Vehicle VEH_001 Bookings",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/scheduler/bookings/VEH_001",
+              "host": ["{{base_url}}"],
+              "path": ["scheduler", "bookings", "VEH_001"]
+            },
+            "description": "Get all bookings for a specific vehicle"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Notification Service",
+      "item": [
+        {
+          "name": "Send Push Notification",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vehicle_id\": \"VEH_001\",\n  \"message\": \"Your service appointment is confirmed for tomorrow at 09:00 AM. Please arrive 15 minutes early.\",\n  \"channel\": \"app\",\n  \"metadata\": {\n    \"booking_id\": \"BK_test123\",\n    \"priority\": \"high\"\n  }\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/notifications/push",
+              "host": ["{{base_url}}"],
+              "path": ["notifications", "push"]
+            },
+            "description": "Send a push notification to a vehicle owner"
+          },
+          "response": []
+        },
+        {
+          "name": "Send SMS Notification",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vehicle_id\": \"VEH_003\",\n  \"message\": \"Engine maintenance alert: Your vehicle requires immediate service. Please visit your nearest service center.\",\n  \"channel\": \"sms\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/notifications/push",
+              "host": ["{{base_url}}"],
+              "path": ["notifications", "push"]
+            },
+            "description": "Send an SMS notification to vehicle owner"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Notification History",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/notifications/history",
+              "host": ["{{base_url}}"],
+              "path": ["notifications", "history"]
+            },
+            "description": "Get all notifications (all vehicles)"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Vehicle VEH_001 Notifications",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/notifications/history?vehicle_id=VEH_001",
+              "host": ["{{base_url}}"],
+              "path": ["notifications", "history"],
+              "query": [
+                {
+                  "key": "vehicle_id",
+                  "value": "VEH_001"
+                }
+              ]
+            },
+            "description": "Get notifications for a specific vehicle"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Notification Statistics",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/notifications/stats",
+              "host": ["{{base_url}}"],
+              "path": ["notifications", "stats"]
+            },
+            "description": "Get notification delivery statistics"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Orchestration Engine",
+      "item": [
+        {
+          "name": "Run Orchestration Flow - VEH_001 (HIGH RISK)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vehicle_id\": \"VEH_001\",\n  \"customer_name\": \"Rajesh Kumar\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/orchestration/run_flow",
+              "host": ["{{base_url}}"],
+              "path": ["orchestration", "run_flow"]
+            },
+            "description": "Execute complete multi-agent orchestration flow for Maruti Swift (brake wear 82%, DTC codes). This triggers:\n1. Data Analysis Agent - Fetches telemetry & maintenance\n2. Diagnosis Agent - Predicts HIGH risk\n3. Customer Engagement - Generates engagement script\n4. Scheduling Agent - Books appointment\n5. Feedback Agent - Sets up satisfaction tracking\n6. Manufacturing Insights - Analyzes defects\n7. UEBA Layer - Logs all interactions"
+          },
+          "response": []
+        },
+        {
+          "name": "Run Orchestration Flow - VEH_002 (LOW RISK)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vehicle_id\": \"VEH_002\",\n  \"customer_name\": \"Priya Sharma\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/orchestration/run_flow",
+              "host": ["{{base_url}}"],
+              "path": ["orchestration", "run_flow"]
+            },
+            "description": "Execute orchestration for Hyundai Creta (low risk vehicle)"
+          },
+          "response": []
+        },
+        {
+          "name": "Run Orchestration Flow - VEH_003 (HIGH RISK)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vehicle_id\": \"VEH_003\",\n  \"customer_name\": \"Suresh Patel\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/orchestration/run_flow",
+              "host": ["{{base_url}}"],
+              "path": ["orchestration", "run_flow"]
+            },
+            "description": "Execute orchestration for Tata Nexon (engine overheating - HIGH RISK)"
+          },
+          "response": []
+        },
+        {
+          "name": "Get UEBA Security Summary",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/orchestration/ueba-summary",
+              "host": ["{{base_url}}"],
+              "path": ["orchestration", "ueba-summary"]
+            },
+            "description": "Get security audit log summary - shows all agent interactions, blocked access attempts, and compliance events"
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:5000",
+      "type": "string"
+    }
+  ]
+}

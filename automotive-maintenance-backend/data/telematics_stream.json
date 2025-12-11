@@ -1,0 +1,59 @@
+{
+  "vehicles": [
+    {
+      "vehicle_id": "VEH_001",
+      "vehicle_name": "Maruti Swift 2022",
+      "timestamp": "2025-12-10T10:30:00Z",
+      "brake_wear": 82,
+      "engine_temp": 98,
+      "battery_voltage": 13.2,
+      "dtc_codes": ["P0101", "P0102"],
+      "odometer": 45200,
+      "fuel_level": 65
+    },
+    {
+      "vehicle_id": "VEH_002",
+      "vehicle_name": "Hyundai Creta 2021",
+      "timestamp": "2025-12-10T10:25:00Z",
+      "brake_wear": 45,
+      "engine_temp": 92,
+      "battery_voltage": 13.5,
+      "dtc_codes": [],
+      "odometer": 67800,
+      "fuel_level": 42
+    },
+    {
+      "vehicle_id": "VEH_003",
+      "vehicle_name": "Tata Nexon 2020",
+      "timestamp": "2025-12-10T10:20:00Z",
+      "brake_wear": 65,
+      "engine_temp": 105,
+      "battery_voltage": 11.8,
+      "dtc_codes": ["P0300"],
+      "odometer": 89300,
+      "fuel_level": 78
+    },
+    {
+      "vehicle_id": "VEH_004",
+      "vehicle_name": "Honda City 2023",
+      "timestamp": "2025-12-10T10:15:00Z",
+      "brake_wear": 35,
+      "engine_temp": 88,
+      "battery_voltage": 13.8,
+      "dtc_codes": [],
+      "odometer": 12500,
+      "fuel_level": 85
+    },
+    {
+      "vehicle_id": "VEH_005",
+      "vehicle_name": "Mahindra XUV300 2022",
+      "timestamp": "2025-12-10T10:10:00Z",
+      "brake_wear": 78,
+      "engine_temp": 102,
+      "battery_voltage": 12.5,
+      "dtc_codes": ["P0420"],
+      "odometer": 56700,
+      "fuel_level": 51
+    }
+  ]
+}

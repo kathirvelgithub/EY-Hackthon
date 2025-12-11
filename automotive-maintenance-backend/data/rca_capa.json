@@ -1,0 +1,54 @@
+{
+  "records": [
+    {
+      "rca_id": "RCA_001",
+      "component_type": "Engine",
+      "defect_description": "Engine overheating recurring in Q3 2025",
+      "root_cause": "Thermal management design limitation",
+      "affected_vehicles_count": 234,
+      "capa_action": "Redesign radiator cooling fins for improved surface area",
+      "priority": "HIGH",
+      "target_completion": "2025-12-31"
+    },
+    {
+      "rca_id": "RCA_002",
+      "component_type": "Brake System",
+      "defect_description": "Accelerated brake pad wear",
+      "root_cause": "Friction material composition affecting wear rate",
+      "affected_vehicles_count": 156,
+      "capa_action": "Evaluate alternative brake pad materials with lower wear rate",
+      "priority": "MEDIUM",
+      "target_completion": "2026-01-15"
+    },
+    {
+      "rca_id": "RCA_003",
+      "component_type": "Transmission",
+      "defect_description": "Transmission fluid degradation",
+      "root_cause": "Inadequate cooling in transmission oil cooler",
+      "affected_vehicles_count": 89,
+      "capa_action": "Upgrade transmission cooler design and increase oil change intervals",
+      "priority": "HIGH",
+      "target_completion": "2025-12-20"
+    },
+    {
+      "rca_id": "RCA_004",
+      "component_type": "Electrical",
+      "defect_description": "Check Engine Light false positives",
+      "root_cause": "Sensor calibration drift in manufacturing",
+      "affected_vehicles_count": 67,
+      "capa_action": "Implement tighter sensor calibration tolerance in manufacturing",
+      "priority": "MEDIUM",
+      "target_completion": "2026-01-30"
+    },
+    {
+      "rca_id": "RCA_005",
+      "component_type": "Exhaust System",
+      "defect_description": "Exhaust rattle and vibration",
+      "root_cause": "Mounting bracket inadequate for vibration isolation",
+      "affected_vehicles_count": 45,
+      "capa_action": "Redesign exhaust mounting bracket with improved damping",
+      "priority": "LOW",
+      "target_completion": "2026-02-28"
+    }
+  ]
+}

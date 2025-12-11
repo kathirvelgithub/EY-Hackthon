@@ -1,0 +1,52 @@
+[
+  {
+    "booking_id": "BK_B653B7BD",
+    "vehicle_id": "VEH_001",
+    "customer_name": "Rajesh Kumar",
+    "slot_id": "SLOT_001",
+    "center_id": "CENTER_001",
+    "booking_date": "2025-12-10T15:28:24.956Z",
+    "status": "confirmed",
+    "estimated_duration": "1-2 hours"
+  },
+  {
+    "booking_id": "BK_B9FA5EE8",
+    "vehicle_id": "VEH_001",
+    "customer_name": "Rajesh Kumar",
+    "slot_id": "SLOT_001",
+    "center_id": "CENTER_001",
+    "booking_date": "2025-12-10T15:28:54.343Z",
+    "status": "confirmed",
+    "estimated_duration": "1-2 hours"
+  },
+  {
+    "booking_id": "BK_3737BDF1",
+    "vehicle_id": "VEH_001",
+    "customer_name": "Rajesh Kumar",
+    "slot_id": "SLOT_001",
+    "center_id": "CENTER_001",
+    "booking_date": "2025-12-10T15:29:00.935Z",
+    "status": "confirmed",
+    "estimated_duration": "1-2 hours"
+  },
+  {
+    "booking_id": "BK_0778C52F",
+    "vehicle_id": "VEH_001",
+    "customer_name": "Rajesh Kumar",
+    "slot_id": "SLOT_001",
+    "center_id": "CENTER_001",
+    "booking_date": "2025-12-10T15:43:23.429Z",
+    "status": "confirmed",
+    "estimated_duration": "1-2 hours"
+  },
+  {
+    "booking_id": "BK_BEA24EF0",
+    "vehicle_id": "VEH_001",
+    "customer_name": "Rajesh Kumar",
+    "slot_id": "SLOT_001",
+    "center_id": "CENTER_001",
+    "booking_date": "2025-12-10T15:44:07.542Z",
+    "status": "confirmed",
+    "estimated_duration": "1-2 hours"
+  }
+]
