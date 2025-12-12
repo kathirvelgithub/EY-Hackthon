@@ -9,6 +9,9 @@ langchain
 langchain-openai
 langgraph
 
+# Voice TTS
+gTTS
+
 # Frontend
 streamlit
 pandas

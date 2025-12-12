@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #fff;
+        }
+        .section {
+            background: #2a2a2a;
+            border: 1px solid #3a3a3a;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #4ade80;
+            margin-top: 0;
+        }
+        button {
+            background: #4ade80;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #22c55e;
+        }
+        .response {
+            background: #1a1a1a;
+            border: 1px solid #3a3a3a;
+            border-radius: 4px;
+            padding: 15px;
+            margin-top: 10px;
+            white-space: pre-wrap;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .success {
+            color: #4ade80;
+        }
+        .error {
+            color: #ef4444;
+        }
+        .status {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+        .status.ok {
+            background: #166534;
+            color: #4ade80;
+        }
+        .status.fail {
+            background: #7f1d1d;
+            color: #ef4444;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔌 Backend API Integration Test</h1>
+    
+    <div class="section">
+        <h2>Health Checks</h2>
+        <button onclick="testEndpoint('/health', 'health')">Backend Health</button>
+        <button onclick="testEndpoint('http://localhost:8000/health', 'ai-health')">AI Agents Health</button>
+        <div id="health-response" class="response"></div>
+        <div id="ai-health-response" class="response"></div>
+    </div>
+
+    <div class="section">
+        <h2>Telematics</h2>
+        <button onclick="testEndpoint('/telematics/VEH_001', 'telematics')">Get Telemetry (VEH_001)</button>
+        <button onclick="testEndpoint('/telematics', 'all-telematics')">Get All Telematics</button>
+        <div id="telematics-response" class="response"></div>
+        <div id="all-telematics-response" class="response"></div>
+    </div>
+
+    <div class="section">
+        <h2>Maintenance</h2>
+        <button onclick="testEndpoint('/maintenance/VEH_001', 'maintenance')">Get Maintenance (VEH_001)</button>
+        <button onclick="testEndpoint('/maintenance', 'all-maintenance')">Get All Maintenance</button>
+        <div id="maintenance-response" class="response"></div>
+        <div id="all-maintenance-response" class="response"></div>
+    </div>
+
+    <div class="section">
+        <h2>Scheduler</h2>
+        <button onclick="testEndpoint('/scheduler/slots?center_id=SC_001&date=2025-12-15', 'slots')">Get Available Slots</button>
+        <button onclick="testEndpoint('/scheduler/bookings', 'bookings')">Get All Bookings</button>
+        <button onclick="testEndpoint('/scheduler/bookings/VEH_001', 'vehicle-bookings')">Get Vehicle Bookings</button>
+        <div id="slots-response" class="response"></div>
+        <div id="bookings-response" class="response"></div>
+        <div id="vehicle-bookings-response" class="response"></div>
+    </div>
+
+    <div class="section">
+        <h2>UEBA</h2>
+        <button onclick="testEndpoint('/ueba/events', 'ueba-events')">Get UEBA Events</button>
+        <button onclick="testEndpoint('/ueba/summary', 'ueba-summary')">Get UEBA Summary</button>
+        <div id="ueba-events-response" class="response"></div>
+        <div id="ueba-summary-response" class="response"></div>
+    </div>
+
+    <div class="section">
+        <h2>Notifications</h2>
+        <button onclick="testEndpoint('/notifications/history', 'notifications')">Get Notification History</button>
+        <button onclick="testEndpoint('/notifications/stats', 'notif-stats')">Get Notification Stats</button>
+        <div id="notifications-response" class="response"></div>
+        <div id="notif-stats-response" class="response"></div>
+    </div>
+
+    <div class="section">
+        <h2>Orchestration</h2>
+        <button onclick="testOrchestration()">Run Orchestration Flow (VEH_001)</button>
+        <button onclick="testEndpoint('/orchestration/ueba-summary', 'orch-ueba')">Get Orchestration UEBA Summary</button>
+        <div id="orchestration-response" class="response"></div>
+        <div id="orch-ueba-response" class="response"></div>
+    </div>
+
+    <script>
+        const BACKEND_URL = 'http://localhost:5000';
+
+        async function testEndpoint(path, id) {
+            const responseDiv = document.getElementById(`${id}-response`);
+            responseDiv.innerHTML = '⏳ Loading...';
+            
+            try {
+                const url = path.startsWith('http') ? path : `${BACKEND_URL}${path}`;
+                const response = await fetch(url);
+                const data = await response.json();
+                
+                responseDiv.className = `response ${response.ok ? 'success' : 'error'}`;
+                responseDiv.innerHTML = `<strong>Status: ${response.status}</strong>\n\n${JSON.stringify(data, null, 2)}`;
+            } catch (error) {
+                responseDiv.className = 'response error';
+                responseDiv.innerHTML = `❌ Error: ${error.message}`;
+            }
+        }
+
+        async function testOrchestration() {
+            const responseDiv = document.getElementById('orchestration-response');
+            responseDiv.innerHTML = '⏳ Running orchestration flow (may take 10-30 seconds)...';
+            
+            try {
+                const response = await fetch(`${BACKEND_URL}/orchestration/run_flow`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ vehicle_id: 'VEH_001' })
+                });
+                const data = await response.json();
+                
+                responseDiv.className = `response ${response.ok ? 'success' : 'error'}`;
+                responseDiv.innerHTML = `<strong>Status: ${response.status}</strong>\n\n${JSON.stringify(data, null, 2)}`;
+            } catch (error) {
+                responseDiv.className = 'response error';
+                responseDiv.innerHTML = `❌ Error: ${error.message}`;
+            }
+        }
+
+        // Run health checks on load
+        window.onload = () => {
+            testEndpoint('/health', 'health');
+            testEndpoint('http://localhost:8000/health', 'ai-health');
+        };
+    </script>
+</body>
+</html>

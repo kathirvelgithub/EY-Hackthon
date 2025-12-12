@@ -24,7 +24,9 @@ const SERVICE_CENTER_SLOTS = {
  * Get available slots for a service center on a given date
  */
 function getAvailableSlots(centerId, date) {
-  const slots = SERVICE_CENTER_SLOTS[centerId] || [];
+  // Normalize center ID: convert underscore to hyphen for lookup
+  const normalizedId = centerId.replace(/_/g, '-');
+  const slots = SERVICE_CENTER_SLOTS[normalizedId] || [];
   if (slots.length === 0) {
     throw new Error(`Service center ${centerId} not found`);
   }

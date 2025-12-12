@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice TTS Audio Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #fff;
+        }
+        button {
+            background: #0070f3;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover { background: #0051cc; }
+        button:disabled { background: #666; cursor: not-allowed; }
+        #output {
+            background: #2a2a2a;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .log { margin: 5px 0; padding: 5px; border-left: 3px solid #0070f3; }
+        .error { border-left-color: #f00; color: #faa; }
+        .success { border-left-color: #0f0; color: #afa; }
+        audio { width: 100%; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <h1>🎤 Voice TTS Audio Test</h1>
+    <p>Test audio playback from the TTS service</p>
+    
+    <div>
+        <button onclick="testTTS()">🔊 Generate & Play Audio</button>
+        <button onclick="testDirectAudio()">▶️ Test Direct Audio URL</button>
+        <button onclick="clearLog()">🗑️ Clear Log</button>
+    </div>
+
+    <audio id="audioPlayer" controls></audio>
+
+    <div id="output"></div>
+
+    <script>
+        const API_URL = 'http://localhost:8000';
+        const audioPlayer = document.getElementById('audioPlayer');
+        const output = document.getElementById('output');
+
+        function log(message, type = 'log') {
+            const div = document.createElement('div');
+            div.className = `log ${type}`;
+            div.textContent = `${new Date().toLocaleTimeString()} - ${message}`;
+            output.insertBefore(div, output.firstChild);
+        }
+
+        function clearLog() {
+            output.innerHTML = '';
+        }
+
+        async function testTTS() {
+            try {
+                log('Calling TTS API...');
+                
+                const response = await fetch(`${API_URL}/voice/tts`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        text: 'Hello! This is a test of the text to speech system. Your vehicle is in good health.',
+                        language: 'en',
+                        slow: false
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                log(`✓ TTS Response: ${JSON.stringify(data)}`, 'success');
+
+                if (data.success && data.filename) {
+                    const audioUrl = `${API_URL}/voice/audio/${data.filename}`;
+                    log(`Audio URL: ${audioUrl}`, 'success');
+
+                    // Clear and set new source
+                    audioPlayer.pause();
+                    audioPlayer.src = '';
+                    audioPlayer.src = audioUrl;
+                    
+                    // Add event listeners
+                    audioPlayer.onloadeddata = () => log('✓ Audio loaded successfully', 'success');
+                    audioPlayer.onerror = (e) => {
+                        log(`✗ Audio error: ${audioPlayer.error?.message || 'Unknown error'}`, 'error');
+                        console.error('Audio error details:', audioPlayer.error);
+                    };
+                    audioPlayer.onplay = () => log('▶️ Audio playing', 'success');
+                    audioPlayer.onended = () => log('■ Audio ended', 'success');
+
+                    // Load and play
+                    audioPlayer.load();
+                    
+                    try {
+                        await audioPlayer.play();
+                        log('✓ Play started successfully', 'success');
+                    } catch (playError) {
+                        log(`✗ Play error: ${playError.message}`, 'error');
+                    }
+                } else {
+                    log('✗ TTS failed to generate audio', 'error');
+                }
+            } catch (error) {
+                log(`✗ Error: ${error.message}`, 'error');
+                console.error(error);
+            }
+        }
+
+        async function testDirectAudio() {
+            // Use a known working audio file
+            const testUrl = 'http://localhost:8000/voice/audio/tts_1765499489254.mp3';
+            log(`Testing direct audio: ${testUrl}`);
+            
+            audioPlayer.pause();
+            audioPlayer.src = testUrl;
+            audioPlayer.load();
+            
+            try {
+                await audioPlayer.play();
+                log('✓ Direct audio playing', 'success');
+            } catch (error) {
+                log(`✗ Direct audio error: ${error.message}`, 'error');
+            }
+        }
+
+        // Log initial state
+        log('Page loaded. Ready to test audio.');
+        log(`Browser: ${navigator.userAgent.split(' ').slice(-2).join(' ')}`);
+        
+        // Check audio support
+        const audio = new Audio();
+        log(`MP3 Support: ${audio.canPlayType('audio/mpeg') || 'unknown'}`);
+    </script>
+</body>
+</html>
